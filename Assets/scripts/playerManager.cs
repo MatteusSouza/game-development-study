@@ -8,13 +8,14 @@ public class playerManager : MonoBehaviour
     private Rigidbody2D player;
     private float movePlayer;
     public float speed, jumpForce, alturacamera;
-    private bool jump, isgrounded, restartPlayer;
+    private bool jump, isgrounded, restartPlayer, win;
     private GameObject cameraPos, inicialPos;
     void Start()
     {
         player = GetComponent<Rigidbody2D>();
         cameraPos = GameObject.Find("Main Camera");
         inicialPos = GameObject.Find("inicialPos");
+        win = false;
     }
 
     void Update()
@@ -27,12 +28,13 @@ public class playerManager : MonoBehaviour
             cameraPos.transform.position.z
             );
         player.velocity = new Vector2(movePlayer * speed,player.velocity.y);
-        if (jump == true && isgrounded == true)
+        if (jump == true && isgrounded == true && win == false)
         {
             player.AddForce(new Vector2(0, jumpForce));
             isgrounded = false;
         }
         restartLevel();
+        winGame();
     }
     private void OnCollisionEnter2D(Collision2D col)
     {
@@ -47,6 +49,10 @@ public class playerManager : MonoBehaviour
         {
             restartPlayer = true;
         }
+        if (col.CompareTag("win") == true)
+        {
+            win = true;
+        }
     }
     private void restartLevel()
     {
@@ -57,6 +63,14 @@ public class playerManager : MonoBehaviour
                 inicialPos.transform.position.y
                 );
             restartPlayer = false;
+        }
+    }
+    private void winGame()
+    {
+        if (win == true)
+        {
+            player.velocity = new Vector2(0,player.velocity.y);
+            // jumpForce = 0;
         }
     }
 }
