@@ -7,9 +7,10 @@ public class playerManager : MonoBehaviour
 
     private Rigidbody2D player;
     private float movePlayer;
-    public float speed, jumpForce, alturacamera;
+    public float speed, jumpForce, alturacamera, panelWinSpeed;
     private bool jump, isgrounded, restartPlayer, win;
     private GameObject cameraPos, inicialPos;
+    public GameObject panelWin;
     void Start()
     {
         player = GetComponent<Rigidbody2D>();
@@ -70,7 +71,7 @@ public class playerManager : MonoBehaviour
         if (win == true)
         {
             player.velocity = new Vector2(0,player.velocity.y);
-            // jumpForce = 0;
+            panelWin.transform.position = Vector2.MoveTowards(panelWin.transform.position,cameraPos.transform.position, panelWinSpeed * Time.deltaTime);
         }
     }
 }
