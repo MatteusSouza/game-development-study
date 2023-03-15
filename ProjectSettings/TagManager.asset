@@ -6,6 +6,7 @@ TagManager:
   tags:
   - armadilhas
   - win
+  - coin
   layers:
   - Default
   - TransparentFX
