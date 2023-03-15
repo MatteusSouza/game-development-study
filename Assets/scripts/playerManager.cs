@@ -15,7 +15,7 @@ public class playerManager : MonoBehaviour
     {
         player = GetComponent<Rigidbody2D>();
         cameraPos = GameObject.Find("Main Camera");
-        inicialPos = GameObject.Find("inicialPos");
+        inicialPos = GameObject.Find("playerStartPosition");
         win = false;
     }
 
