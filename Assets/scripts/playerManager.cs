@@ -11,6 +11,8 @@ public class playerManager : MonoBehaviour
     private bool jump, isgrounded, restartPlayer, win;
     private GameObject cameraPos, inicialPos;
     public GameObject panelWin;
+    public delegate void OnRestartLevel();
+    public static OnRestartLevel onRestartLevel;
     void Start()
     {
         player = GetComponent<Rigidbody2D>();
@@ -64,6 +66,7 @@ public class playerManager : MonoBehaviour
                 inicialPos.transform.position.y
                 );
             restartPlayer = false;
+            onRestartLevel?.Invoke();
         }
     }
     private void winGame()

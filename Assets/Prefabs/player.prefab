@@ -165,3 +165,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreTxt: {fileID: 0}
+  coinPrefab: {fileID: 3136115983557426748, guid: bd744aaa81a8fcf378a66a617ce480d1, type: 3}
