@@ -15,6 +15,7 @@ public class playerManager : MonoBehaviour
     public static OnRestartLevel onRestartLevel;
     void Start()
     {
+        onRestartLevel = null;
         player = GetComponent<Rigidbody2D>();
         cameraPos = GameObject.Find("Main Camera");
         inicialPos = GameObject.Find("playerStartPosition");
