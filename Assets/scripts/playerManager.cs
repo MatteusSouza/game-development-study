@@ -74,6 +74,7 @@ public class playerManager : MonoBehaviour
     {
         if (win == true)
         {
+            ScoreSystem.save = true;
             player.velocity = new Vector2(0,player.velocity.y);
             panelWin.transform.position = Vector2.MoveTowards(panelWin.transform.position,cameraPos.transform.position, panelWinSpeed * Time.deltaTime);
         }
