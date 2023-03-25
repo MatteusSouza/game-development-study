@@ -60,7 +60,7 @@ public class playerManager : MonoBehaviour
     }
     private void restartLevel()
     {
-        if(restartPlayer == true)
+        if(restartPlayer == true && win == false)
         {
             player.transform.position = new Vector2(
                 inicialPos.transform.position.x,
